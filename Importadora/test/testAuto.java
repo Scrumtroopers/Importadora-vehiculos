@@ -1,10 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-import importadora.autos.*;
-/**
- *
- * @author pameliuski
- */
+import model.*;
+
 public class testAuto {
 
     /*  el VIN debe ser 17 caracteres. Los primero 8 deben ser letras mayusculas, y los restantes 9
