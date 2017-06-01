@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import view.Verificador;
 
@@ -80,4 +81,12 @@ public class VentanaModelo extends JFrame{
 		boton.setBounds(x, y, 150, 30);
 		return boton;
 	}
+
+    protected JComboBox nuevoComboBox(int x, int y){
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(fuenteTextField);
+		comboBox.setBounds(x, y, 150, 30);
+		return comboBox;
+    }	
+	
 }
