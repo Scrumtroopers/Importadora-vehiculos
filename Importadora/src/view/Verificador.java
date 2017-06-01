@@ -14,9 +14,23 @@ import javax.swing.JFrame;
  *
  * @author Cristhian
  */
-public class Datos extends JFrame{
-    	
-    //admite solo numeros decimales
+public class Verificador extends JFrame{
+    
+    private static Verificador verificador;
+    
+    private Verificador(){
+    }
+    
+    public static Verificador getVerificador(){
+        if(verificador==null){
+            verificador = new Verificador();
+        }
+        return verificador;
+    }
+
+
+
+//admite solo numeros decimales
     private void SDec(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
