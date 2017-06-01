@@ -1,15 +1,12 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import importadora.autos.*;
-/**
- *
- * @author pameliuski
- */
+
 public class testPedido {
 
-    // Si al agregar el auto el VIN no es valido, no se agrega
+    // Si al agregar el auto el VIN no es valido, no se agrega al pedido
     @Test 
-    public void agregarAutoTest() {
+        public void agregarAutoTest() {
         double precioVenta = 1000;
         double gastosAccesorios = 200;
         double garantia = 200;
@@ -32,6 +29,7 @@ public class testPedido {
         assertEquals(2,pedido.getAutos().size());
     }
     
+    // Recibir un auto segun su VIN
     @Test 
     public void obtenerAutoTest() {
         double precioVenta = 1000;
@@ -54,6 +52,7 @@ public class testPedido {
         assertNotSame(car2,pedido.obtenerAuto(VIN));
     }
     
+    // Calcular el subtotal de todos los autos, para mandar ese dato a la factura, donde se calculara el IVA y precio total  
     @Test 
     public void calcularSubTotalAutosTest() {
 
