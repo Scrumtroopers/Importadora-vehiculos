@@ -1,6 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-import importadora.autos.*;
+import model.*;
 
 public class testPedido {
 
