@@ -1,9 +1,10 @@
-package importadora.autos;
+package model;
 import java.util.ArrayList;
 
 public class Factura {
 
     //private Cliente cliente;
+    //private Date fecha;
     private double pagoTotal;
     private double iva;
     private Pedido pedido;
@@ -13,6 +14,7 @@ public class Factura {
         pedido = new Pedido();
         pagoTotal = 0;
         iva = 0;
+        //fecha = Date.from(Instant.now());
     }
     
     public void addPedido(Pedido pedido) { this.pedido = pedido; }
