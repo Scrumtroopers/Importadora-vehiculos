@@ -7,7 +7,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JTextField;
+import java.awt.TextField;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import view.Verificador;
@@ -64,8 +64,8 @@ public class VentanaModelo extends JFrame{
         this.setVisible(true);
     }
     
-    protected JTextField nuevoTextField(int x, int y){
-		JTextField campo = new JTextField();
+    protected TextField nuevoTextField(int x, int y){
+		TextField campo = new TextField();
 		campo.setBackground(new Color(245, 245, 245));
 		campo.setFont(fuenteTextField);
 		campo.setBounds(x, y, 150, 30);
