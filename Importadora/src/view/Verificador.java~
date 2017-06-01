@@ -31,7 +31,7 @@ public class Verificador extends JFrame{
 
 
 //admite solo numeros decimales
-    protected void SDec(JTextField a){
+    private void SDec(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
 	            public void keyTyped(KeyEvent e){
@@ -45,7 +45,7 @@ public class Verificador extends JFrame{
     }
     
     //admite solo numeros enteros
-    protected void SInt(JTextField a){
+    private void SInt(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
 	            public void keyTyped(KeyEvent e){
@@ -60,7 +60,7 @@ public class Verificador extends JFrame{
     
     
     //admite solo letras
-    protected void SLetra(JTextField a){
+    private void SLetra(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
 	            public void keyTyped(KeyEvent e){
@@ -75,7 +75,7 @@ public class Verificador extends JFrame{
     
     
     //admite solo numeros enteros
-    protected void SMin(JTextField a){
+    private void SMin(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
 	            public void keyTyped(KeyEvent e){
@@ -89,7 +89,7 @@ public class Verificador extends JFrame{
     }
     
     //admite solo numeros enteros
-    protected void SMayus(JTextField a){
+    private void SMayus(JTextField a){
 	        a.addKeyListener(new KeyAdapter(){
                     @Override
 	            public void keyTyped(KeyEvent e){
@@ -103,7 +103,7 @@ public class Verificador extends JFrame{
     }
     
     
-    protected double getDouble(JTextField tf){
+    private double getDouble(JTextField tf){
             double numero=0.0;
             String num = tf.getText();
 
@@ -116,7 +116,7 @@ public class Verificador extends JFrame{
 
     }
     
-    protected int getInt(JTextField tf){
+    private int getInt(JTextField tf){
             int numero=0;
             String num = tf.getText();
 
