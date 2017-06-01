@@ -10,10 +10,18 @@ import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.util.ArrayList;
+import model.PermisoUsuario;
 
 public class Menu extends VentanaModelo {
 
 	private JPanel contentPane;
+        private JButton btnInventario;
+        private JButton btnFacturacion;
+        private JButton btnContabilidad;
+        private JButton btnProveedores;
+        private JButton btnUsuarios;
+        private JButton btnTransporte;
         
 	public Menu() {
             super("Menu Principal");
@@ -24,35 +32,60 @@ public class Menu extends VentanaModelo {
 		contentPane.setLayout(null);
                 contentPane.setBackground(colorFondo);
 		
-		JButton btnNewButton = new JButton("Inventario");
-		btnNewButton.setFont(fuenteBotones);
-		btnNewButton.setBounds(29, 30, 162, 129);
-		contentPane.add(btnNewButton);
+                
+		btnInventario = new JButton("Inventario");
+		btnInventario.setFont(fuenteBotones);
+		btnInventario.setBounds(29, 30, 162, 129);
+		contentPane.add(btnInventario);
 		
-		JButton btnFacturacion = new JButton("Facturacion");
+                
+		btnFacturacion = new JButton("Facturacion");
 		btnFacturacion.setFont(fuenteBotones);
 		btnFacturacion.setBounds(216, 30, 162, 129);
 		contentPane.add(btnFacturacion);
 		
-		JButton btnCopntabilidad = new JButton("Contabilidad");
-		btnCopntabilidad.setFont(fuenteBotones);
-		btnCopntabilidad.setBounds(408, 30, 162, 129);
-		contentPane.add(btnCopntabilidad);
+		btnContabilidad = new JButton("Contabilidad");
+		btnContabilidad.setFont(fuenteBotones);
+		btnContabilidad.setBounds(408, 30, 162, 129);
+		contentPane.add(btnContabilidad);
 		
-		JButton btnProveedores = new JButton("Proveedores");
+		btnProveedores = new JButton("Proveedores");
 		btnProveedores.setFont(fuenteBotones);
 		btnProveedores.setBounds(29, 192, 162, 129);
 		contentPane.add(btnProveedores);
 		
-		JButton btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("Usuarios");
 		btnUsuarios.setFont(fuenteBotones);
 		btnUsuarios.setBounds(216, 192, 162, 129);
 		contentPane.add(btnUsuarios);
 		
-		JButton btnTransporte = new JButton("Transporte");
+		btnTransporte = new JButton("Transporte");
 		btnTransporte.setFont(fuenteBotones);
 		btnTransporte.setBounds(408, 192, 162, 129);
 		contentPane.add(btnTransporte);
 	}
-
+        
+        public JButton getBotonInventario(){
+            return btnInventario;
+        }
+        
+        public JButton getBotonUsuarios(){
+            return btnUsuarios;
+        }
+        
+        public JButton getBotonContabilidad(){
+            return btnContabilidad;
+        }
+        
+        public JButton getBotonFacturacion(){
+            return btnFacturacion;
+        }
+        
+        public JButton getBotonProveedores(){
+            return btnProveedores;
+        }
+        
+        public JButton getBotonTransporte(){
+            return btnTransporte;
+        }
 }

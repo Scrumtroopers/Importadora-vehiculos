@@ -7,6 +7,7 @@ package importadora;
 
 import Conexion.BaseDeDatos;
 import controller.ControlLogIn;
+import controller.ControlMenuPrincipal;
 import model.AdministradorVentanas;
 import view.Login;
 
@@ -20,8 +21,13 @@ public class Importadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ControlLogIn.instancia.inicializar();
+        inicializarInstancias();
         AdministradorVentanas.instancia.abrirVentana(Login.class);
+    }
+    
+    private static void inicializarInstancias(){
+        ControlLogIn.instancia.inicializar();
+        ControlMenuPrincipal.instancia.inicializar();
     }
     
 }

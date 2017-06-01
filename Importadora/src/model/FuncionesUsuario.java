@@ -8,6 +8,7 @@ package model;
 import Conexion.FuncionesBaseDeDatos;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -33,6 +34,21 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
     
     public String getPasswordUsuario(int idUsuario){
         return this.obtenerPrimerValorTabla("user_2", new String[]{"password_2"}, "WHERE iduser='"+idUsuario+"'");
+    }
+    
+    public TipoUsuario getTipoUsuario(int idUsuario){
+        int valor = this.obtenerPrimerValorTabla("user_rol", new String[]{"rol_idrol"}, "WHERE user_2_iduser='"+idUsuario+"'");
+        return TipoUsuario.values()[(valor - 1)];
+    }
+    
+    public ArrayList<PermisoUsuario> getPermisosUsuario(int idUsuario){
+        TipoUsuario tipo = getTipoUsuario(idUsuario);
+        ArrayList<Object[]> valores = obtenerDeTabla("rol_funcion", new String[]{"funcion_idfuncion"}, "WHERE rol_idrol='"+(tipo.ordinal()+1)+"'");
+        ArrayList<PermisoUsuario> permisos = new ArrayList<PermisoUsuario>();
+        for(Object[] fila : valores){
+            permisos.add(PermisoUsuario.values()[((int)fila[0]) - 1]);
+        }
+        return permisos;
     }
     
     public boolean verificarPassword(String password, int idUsuario)

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import view.Login;
 
 /**
  *
@@ -39,7 +40,6 @@ public class AdministradorVentanas {
                 ventanasAnteriores.push(ventanaActual);
                 ventanaActual = clase.getName();
                 ventana = getVentana(clase);
-                
                 ventana.mostrarVentana();
             }
         } catch (InstantiationException | IllegalAccessException ex) {
@@ -62,5 +62,14 @@ public class AdministradorVentanas {
                     instancias.put(clase.getName(), ventana);
                }
         return ventana;
+    }
+    
+    public void Atras(){
+        if(ventanasAnteriores.size() > 1){
+            cerrarVentanaActual();
+            ventanaActual = this.ventanasAnteriores.pop();
+            VentanaModelo ventana = instancias.get(ventanaActual);
+            ventana.mostrarVentana();
+        }
     }
 }
