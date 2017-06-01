@@ -1,13 +1,9 @@
-package importadora.autos;
+package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author pameliuski
- */
 public class Auto {
     private String VIN;
     private String modelo;
