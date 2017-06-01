@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase se encarga de controlar las funciones de la ventana del Menu principal
  */
 package controller;
 
@@ -30,6 +28,9 @@ public class ControlMenuPrincipal {
         }
     }
     
+    /**
+     * Este metodo inicializa los botones y los habilita segun el permiso del usuario
+     */
     public void inicializar(){
         ventanaMenu.getBotonContabilidad().addActionListener(new java.awt.event.ActionListener() {
              public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +93,10 @@ public class ControlMenuPrincipal {
          });
     }
     
+    /**
+     * @return devuelve true si el usuario cumple con alguno de los permisos
+     * @param permisos es un arreglo de los permisos a verificar
+     */
     private boolean verificarPermiso(PermisoUsuario[] permisos){
         boolean valido = false;
         if(ControlLogIn.instancia.usuarioActivo()){

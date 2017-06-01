@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * En Esta clase estan todas las funciones de consulta a la Base de datos
  */
 package Conexion;
 
@@ -31,6 +29,11 @@ public class FuncionesBaseDeDatos {
         this.getStatement = statement;
     }
     
+    /**
+     * @return Devuelve el primer valor obtenido de una funcion en la Base de datos.
+     * @param nombreFuncion es el nombre de la funcion de la base de datos
+     * @param parametros son los parametros que se envian a la funcion de la Base de datos
+     */
     protected <T> T obtenerPrimerValorFuncion(String nombreFuncion, Object[] parametros){
         try{
             return (T)obtenerDeFuncion(nombreFuncion, parametros).get(0)[0];
@@ -40,6 +43,11 @@ public class FuncionesBaseDeDatos {
         }
     }
     
+    /**
+     * @return Devuelve todos los valores obtenidos de una funcion de la Base de datos
+     * @param nombreFuncion es el nombre de la funcion de la base de datos
+     * @param parametros son los parametros que se envian a la funcion de la Base de datos
+    */
     protected ArrayList<Object[]> obtenerDeFuncion(String nombreFuncion, Object[] parametros) {
         ArrayList<Object[]> resultado = null;
         try {
@@ -81,6 +89,12 @@ public class FuncionesBaseDeDatos {
         return resultado;
     }
     
+    /**
+     * @return Obtiene el primer valor de una consulta de una tabla en la base de datos
+     * @param tabla nombre de la tabla de la Base de datos
+     * @param variables nombre de las variables que se desea obtener
+     * @param condicion condicion aplicada a la consulta en SQL
+     */
     protected <T> T obtenerPrimerValorTabla(String tabla, String[] variables, String condicion){
         try{
             return (T)obtenerDeTabla(tabla, variables, condicion).get(0)[0];
@@ -90,6 +104,12 @@ public class FuncionesBaseDeDatos {
         }
     }
     
+    /**
+     *@return Obtiene todos los valores de una consulta a una tabla en la base de datos
+     * @param tabla nombre de la tabla de la Base de datos
+     * @param variables nombre de las variables que se desea obtener
+     * @param condicion condicion aplicada a la consulta en SQL
+     */
     protected ArrayList<Object[]> obtenerDeTabla(String tabla, String[] variables, String condicion) {
         ArrayList<Object[]> resultado = null;
         try {
@@ -108,6 +128,12 @@ public class FuncionesBaseDeDatos {
         return resultado;
     }
     
+    /**
+     * @return devuelve true si se lograron insertar los valores en la tabla
+     * @param tabla nombre de la tabla a la que se desea insertar los valores
+     * @param variables nombres de las variables a las que se les asignara los valores
+     * @param valores valores que corresponden a las variables de la tabla
+     */
     protected boolean insertarEnTabla(String tabla, String[] variables, Object[] valores) {
         boolean insertado = false;
         try {
@@ -134,6 +160,12 @@ public class FuncionesBaseDeDatos {
         return insertado;
     }
     
+    /**
+     * @param tabla nombre de la tabla a la que se desea insertar los valores
+     * @param variables nombres de las variables que seran actualizadas
+     * @param valores valores de las variables que seran actualizadas
+     * @param condicion condicion aplicada a la consulta en SQL
+     */
     protected void actualizarTabla(String tabla, String[] variables, Object[] valores, String condicion) {   
         try {
             StringBuilder sbVals = new StringBuilder();

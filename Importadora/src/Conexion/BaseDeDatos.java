@@ -1,14 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * En esta clase se realiza la conexion con la Base de datos
  */
 package Conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,6 +18,7 @@ import model.FuncionesUsuario;
  */
 public class BaseDeDatos {
     
+    //Instancuia estatica de la Base de datos para que sea accesible desde cualquier parte
     public static BaseDeDatos instancia = new BaseDeDatos();
     
     private FuncionesUsuario usuarios;

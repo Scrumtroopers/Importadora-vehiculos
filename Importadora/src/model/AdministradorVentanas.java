@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase se encarga de administrar las ventanas abiertas, maneja las instancias y es capaz de ir una ventana atras
  */
 package model;
 
@@ -31,6 +29,9 @@ public class AdministradorVentanas {
         ventanaActual = "";
     }
     
+    /**
+     * @param clase esta variable se utiliza para crear una instancia de la ventana y abrirla
+     */
     public <T extends VentanaModelo> void abrirVentana(Class<T> clase){
         try {
             VentanaModelo ventana;
@@ -47,11 +48,19 @@ public class AdministradorVentanas {
         }
     }
     
+    /**
+     * Este metodo cierra la ventana actual
+     */
     public void cerrarVentanaActual(){
         if(!ventanaActual.equals(""))
             instancias.get(ventanaActual).ocultarVentana();
     }
     
+    /**
+     * Esta funcion crea una instancia de la ventana o la obtiene si ya fue creada
+     * @return devuelve la ventana
+     * @param clase esta variable se utiliza para crear una instancia de la ventana y abrirla
+     */
     public <T extends VentanaModelo> T getVentana(Class<T> clase) throws InstantiationException, IllegalAccessException{
         T ventana;
         if(instancias.containsKey(clase.getName())){
@@ -64,6 +73,9 @@ public class AdministradorVentanas {
         return ventana;
     }
     
+    /**
+     * Este metodo abre una ventana anterior
+     */
     public void Atras(){
         if(ventanasAnteriores.size() > 1){
             cerrarVentanaActual();
