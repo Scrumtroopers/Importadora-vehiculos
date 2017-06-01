@@ -5,6 +5,7 @@
  */
 package model;
 
+import view.VentanaModelo;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -16,6 +17,8 @@ import java.util.logging.Logger;
  * @author Bernardo
  */
 public class AdministradorVentanas {
+    
+    public static AdministradorVentanas instancia = new AdministradorVentanas();
     
     private Stack<String> ventanasAnteriores;
     private Map<String, VentanaModelo> instancias;
@@ -32,19 +35,32 @@ public class AdministradorVentanas {
             VentanaModelo ventana;
             if(!ventanaActual.equals(clase.getName()))
             {
+                cerrarVentanaActual();
                 ventanasAnteriores.push(ventanaActual);
                 ventanaActual = clase.getName();
-                if(instancias.containsKey(ventanaActual)){
-                    ventana = instancias.get(ventanaActual);
-                }
-                else{
-                    ventana = clase.newInstance();
-                    instancias.put(ventanaActual, ventana);
-                }
+                ventana = getVentana(clase);
+                
                 ventana.mostrarVentana();
             }
         } catch (InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(AdministradorVentanas.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void cerrarVentanaActual(){
+        if(!ventanaActual.equals(""))
+            instancias.get(ventanaActual).ocultarVentana();
+    }
+    
+    public <T extends VentanaModelo> T getVentana(Class<T> clase) throws InstantiationException, IllegalAccessException{
+        T ventana;
+        if(instancias.containsKey(clase.getName())){
+                    ventana = (T)instancias.get(clase.getName());
+                }
+                else{
+                    ventana = clase.newInstance();
+                    instancias.put(clase.getName(), ventana);
+               }
+        return ventana;
     }
 }

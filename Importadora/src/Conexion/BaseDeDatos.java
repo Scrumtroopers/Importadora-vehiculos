@@ -5,13 +5,16 @@
  */
 package Conexion;
 
-import model.FuncionesUsuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.FuncionesUsuario;
 
 /**
  *
@@ -26,7 +29,7 @@ public class BaseDeDatos {
     private Statement getStatement = null;
     private String url = "jdbc:postgresql://localhost:5432/importadora";
     private String user = "postgres";
-    private String password = " ";
+    private String password = "";
 
     public BaseDeDatos(){
         //conection = DriverManager.getConnection(url, user, password);

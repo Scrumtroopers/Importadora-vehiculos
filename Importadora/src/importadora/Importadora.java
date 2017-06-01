@@ -5,6 +5,11 @@
  */
 package importadora;
 
+import Conexion.BaseDeDatos;
+import controller.ControlLogIn;
+import model.AdministradorVentanas;
+import view.Login;
+
 /**
  *
  * @author Cristhian
@@ -15,7 +20,8 @@ public class Importadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ControlLogIn.instancia.inicializar();
+        AdministradorVentanas.instancia.abrirVentana(Login.class);
     }
     
 }
