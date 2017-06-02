@@ -56,6 +56,57 @@ public class testFactura {
 
         assertEquals(2160,factura.calcularTotalConIVA(),0.001); //aplicar iva = 20% al total = 4900
     }
+    
+    @Test
+    public void codigoControlTest() {
+        CodControl cc = new CodControl();
+        String[] factura = {"7904006306693","876814","1665979","2008/05/19","35958,60","zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS","27773"},
+                factura2 = {"8004005263848","673173","1666188","2008/08/10","51330,00","PNRU4cgz7if)[tr#J69j=yCS57i=uVZ$n@nv6wxaRFP+AUf*L7Adiq3TT[Hw-@wt","69999"},
+                factura3 = {"7904006098968","165657","1666615","2008/06/30","96459,00","m3dcSc)Dg#SN}prtK=9xn[m+pgAxL%N67G}QfwNZM+)IzCnvP$T*qjEKhmJnaDHm","62652"},
+                factura4 = {"7904004313753","826384","1666982","2008/06/22","61102,70","Ebs[$c2d2NCg5FYj@6nU5y##a5d]eDVz%]xW6bzcd}Kd)\\w\\=c+)dZHneF#bqVL@"},
+                factura5 = {"1904008691195","978256","0","2008/02/01","26006,00","pPgiFS%)v}@N4W3aQqqXCEHVS2[aDw_n%3)pFyU%bEB9)YXt%xNBub4@PZ4S9)ct"};
+        
+        cc.setNroAut(factura[0]);
+        cc.setNroFact(factura[1]);
+        cc.setNit(factura[2]);
+        cc.setFecha(factura[3]);
+        cc.setMonto(factura[4]);
+        cc.setLlave(factura[5]);
+        assertEquals(factura[6], cc.getVerhoeff());
+        
+        cc.setNroAut(factura2[0]);
+        cc.setNroFact(factura2[1]);
+        cc.setNit(factura2[2]);
+        cc.setFecha(factura2[3]);
+        cc.setMonto(factura2[4]);
+        cc.setLlave(factura2[5]);
+        assertEquals(factura2[6], cc.getVerhoeff());
+        
+        cc.setNroAut(factura3[0]);
+        cc.setNroFact(factura3[1]);
+        cc.setNit(factura3[2]);
+        cc.setFecha(factura3[3]);
+        cc.setMonto(factura3[4]);
+        cc.setLlave(factura3[5]);
+        assertEquals(factura3[6], cc.getVerhoeff());
+        
+        cc.setNroAut(factura4[0]);
+        cc.setNroFact(factura4[1]);
+        cc.setNit(factura4[2]);
+        cc.setFecha(factura4[3]);
+        cc.setMonto(factura4[4]);
+        cc.setLlave(factura4[5]);
+        assertEquals(factura4[6], cc.getVerhoeff());
+        
+        cc.setNroAut(factura5[0]);
+        cc.setNroFact(factura5[1]);
+        cc.setNit(factura5[2]);
+        cc.setFecha(factura5[3]);
+        cc.setMonto(factura5[4]);
+        cc.setLlave(factura5[5]);
+        assertEquals(factura5[6], cc.getVerhoeff());
+        
+    }
 
 }
 
