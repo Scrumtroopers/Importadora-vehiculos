@@ -161,7 +161,7 @@ public class CodControl {
 		}
 		
 		//System.out.println(alleged);
-		
+		 
 		return alleged;
 	} 
 	
@@ -184,6 +184,10 @@ public class CodControl {
 				hex = (char)(d0 - 10 + 'A') + hex;
 		}
 		return hex;
+	}
+	
+	public String getBase64(){
+		return "";
 	}
 	
 	public static void main(String arg[]){
