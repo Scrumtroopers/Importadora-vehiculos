@@ -39,6 +39,7 @@ public class BaseDeDatos {
             System.out.println("no se conecto");
         }
         usuarios = new FuncionesUsuario(conection, getStatement);
+        
     }
     
     public FuncionesUsuario getUsuarios(){

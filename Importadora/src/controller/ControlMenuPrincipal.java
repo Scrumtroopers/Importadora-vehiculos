@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import model.AdministradorVentanas;
 import model.PermisoUsuario;
+import view.Inventario;
 import view.Menu;
 
 /**
@@ -59,7 +60,9 @@ public class ControlMenuPrincipal {
                      PermisoUsuario.ConsultarInventario,
                      PermisoUsuario.EliminarProducto
                  }));
-                 System.out.println(valido?"Acceso valido":"Acceso Denegado");
+                 if(valido){
+                     AdministradorVentanas.instancia.abrirVentana(Inventario.class);
+                 }
              }
          });
         ventanaMenu.getBotonProveedores().addActionListener(new java.awt.event.ActionListener() {

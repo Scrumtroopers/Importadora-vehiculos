@@ -6,6 +6,7 @@
 package importadora;
 
 import Conexion.BaseDeDatos;
+import controller.ControlInventario;
 import controller.ControlLogIn;
 import controller.ControlMenuPrincipal;
 import model.AdministradorVentanas;
@@ -28,6 +29,7 @@ public class Importadora {
     private static void inicializarInstancias(){
         ControlLogIn.instancia.inicializar();
         ControlMenuPrincipal.instancia.inicializar();
+        ControlInventario.instancia.inicializar();
     }
     
 }
