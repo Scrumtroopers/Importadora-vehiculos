@@ -6,8 +6,7 @@ import java.util.Locale;
 
 public class CodControl {
 	String nroFact, nroAut, nit, fecha, monto, llave, ver5, cadena;
-	int st;
-	int[] sp;
+	long sumTot;
 	
 	public CodControl(){}
 	
@@ -115,8 +114,8 @@ public class CodControl {
 	}
 	
 	public String getSumatoriaProductos(){
-		st = 0;
-		sp = new int[5];
+		int st = 0;
+		int[] sp = new int[5];
 		
 		String alleged = getAllegedRC4();
 		
@@ -129,7 +128,12 @@ public class CodControl {
 		
 		//System.out.println(Arrays.toString(sp));
 		
-		return "" + st;
+		sumTot = 0;
+		
+		for(int i = 0; i < 5; i++)
+			sumTot += (st * sp[i]) / (ver5.charAt(i) - '0' + 1);
+		
+		return "" + sumTot;
 	}
 	
 	private String getAllegedRC4(){
@@ -160,13 +164,12 @@ public class CodControl {
 			alleged += hexadecimal(nmen);
 		}
 		
-		//System.out.println(alleged);
+		System.out.println(alleged);
 		 
 		return alleged;
 	} 
 	
-	static String hexadecimal(int n){
-		int auxn = n;
+	private String hexadecimal(int n){
 		int d0 = n % 16;
 		String hex = "";
 		if(d0 < 10)
@@ -187,32 +190,53 @@ public class CodControl {
 	}
 	
 	public String getBase64(){
-		return "";
+		char[] diccionario = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
+
+'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
+
+'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', '/'};
+		long num = sumTot;
+		long cociente = 1;
+		int resto;
+		String palabra = "";
+		
+		while(cociente > 0){
+			cociente = num / 64;
+			resto = (int)(num % 64);
+			
+			palabra = diccionario[resto] + palabra;
+			
+			num = cociente;
+		}
+		
+		return palabra;
 	}
 	
 	public static void main(String arg[]){
 		CodControl cod = new CodControl();
-		
+		/*
 		cod.setNroAut("29040011007");
 		cod.setNroFact("1503");
 		cod.setNit("4189179011");
 		cod.setFecha("20070702");
 		cod.setMonto("2500");
 		cod.setLlave("9rCB7Sv4X29d)5k7N%3ab89p-3(5[A");
+		*/
 		
-		/*
 		cod.setNroAut("7904006306693");
 		cod.setNroFact("876814");
 		cod.setNit("1665979");
 		cod.setFecha("2008/05/19");
 		cod.setMonto("35958,6");
 		cod.setLlave("zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS");
-		*/
+		
 		
 		System.out.println(cod.getVerhoeff());
 		
 		System.out.println(cod.getCadena());
 		
 		System.out.println(cod.getSumatoriaProductos());
+		
+		System.out.println(cod.getBase64());
 	}
 }
