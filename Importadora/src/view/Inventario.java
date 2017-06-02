@@ -39,7 +39,7 @@ public class Inventario extends VentanaModelo {
     public Inventario() {
         super("Inventario");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 870, 459);
+        setBounds(100, 100, 950, 459);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -55,7 +55,7 @@ public class Inventario extends VentanaModelo {
         contentPane.add(btnAgregar);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 11, 834, 329);
+        scrollPane.setBounds(10, 11, 930, 369);
         contentPane.add(scrollPane);
 
         table = new JTable();
