@@ -25,7 +25,8 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
     }
     
     public int getIdUser(int pid){
-        return obtenerPrimerValorTabla("sesion", new String[]{"user_2_iduser"}, "WHERE pid='"+pid+"'");
+        Object val = obtenerPrimerValorTabla("sesion", new String[]{"user_2_iduser"}, "WHERE pid='"+pid+"'");
+        return val == null?-1:(int)val;
     }
     
     public String getNombreUsuario(int idUsuario){
@@ -37,16 +38,21 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
     }
     
     public TipoUsuario getTipoUsuario(int idUsuario){
-        int valor = this.obtenerPrimerValorTabla("user_rol", new String[]{"rol_idrol"}, "WHERE user_2_iduser='"+idUsuario+"'");
-        return TipoUsuario.values()[(valor - 1)];
+        Object valor = this.obtenerPrimerValorTabla("user_rol", new String[]{"rol_idrol"}, "WHERE user_2_iduser='"+idUsuario+"'");
+        return valor == null?null:TipoUsuario.values()[((int)valor - 1)];
     }
     
     public ArrayList<PermisoUsuario> getPermisosUsuario(int idUsuario){
         TipoUsuario tipo = getTipoUsuario(idUsuario);
-        ArrayList<Object[]> valores = obtenerDeTabla("rol_funcion", new String[]{"funcion_idfuncion"}, "WHERE rol_idrol='"+(tipo.ordinal()+1)+"'");
-        ArrayList<PermisoUsuario> permisos = new ArrayList<PermisoUsuario>();
-        for(Object[] fila : valores){
-            permisos.add(PermisoUsuario.values()[((int)fila[0]) - 1]);
+        ArrayList<PermisoUsuario> permisos = null;
+        if(tipo!=null){
+            ArrayList<Object[]> valores = obtenerDeTabla("rol_funcion", new String[]{"funcion_idfuncion"}, "WHERE rol_idrol='"+(tipo.ordinal()+1)+"'");
+            permisos = new ArrayList<PermisoUsuario>();
+            if(valores != null && !valores.isEmpty()){
+                for(Object[] fila : valores){
+                    permisos.add(PermisoUsuario.values()[((int)fila[0]) - 1]);
+                }
+            }
         }
         return permisos;
     }
@@ -54,7 +60,7 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
     public boolean verificarPassword(String password, int idUsuario)
     {
         String actual = getPasswordUsuario(idUsuario);
-        return actual.equals(password);
+        return actual == null?false:actual.equals(password);
     }
     
     public void cambiarPassword(String nuevo, int idUsuario){
