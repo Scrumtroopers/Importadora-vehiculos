@@ -69,7 +69,7 @@ public class VentanaModelo extends JFrame{
 		JTextField campo = new JTextField();
 		campo.setBackground(new Color(245, 245, 245));
 		campo.setFont(fuenteTextField);
-		campo.setBounds(x, y, 150, 30);
+		campo.setBounds(x, y, 150, 25);
 		return campo;
 	}
 	
