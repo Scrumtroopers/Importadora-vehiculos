@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Locale;
 
 public class CodControl {
-	String nroFact, nroAut, nit, fecha, monto, llave, ver5, cadena;
+	String nroFact, nroAut, nit, fecha, monto, llave, ver5, cadena, base, codigo;
 	long sumTot;
 	
 	public CodControl(){}
@@ -117,7 +117,7 @@ public class CodControl {
 		int st = 0;
 		int[] sp = new int[5];
 		
-		String alleged = getAllegedRC4();
+		String alleged = getAllegedRC4(cadena, llave + ver5);
 		
 		for(char c : alleged.toCharArray())
 			st += c;
@@ -136,8 +136,9 @@ public class CodControl {
 		return "" + sumTot;
 	}
 	
-	private String getAllegedRC4(){
-		String key = llave + ver5, alleged = "";
+	private String getAllegedRC4(String cadena, String key){
+		//String key = llave + ver5, 
+		String alleged = "";
 		
 		int[] state = new int[256];
 		
@@ -209,27 +210,41 @@ public class CodControl {
 			num = cociente;
 		}
 		
-		return palabra;
+		return base = palabra;
+	}
+	
+	public String getCodigoControl(){
+		String hex = getAllegedRC4(base, llave + ver5);
+		
+		codigo = "";
+		
+		for(int i = 0; i < hex.length(); i++){
+			codigo += hex.charAt(i);
+			if(i % 2 != 0)
+				codigo += "-";
+		}
+		
+		return codigo = codigo.substring(0, codigo.length() - 1);
 	}
 	
 	public static void main(String arg[]){
 		CodControl cod = new CodControl();
-		/*
+		
 		cod.setNroAut("29040011007");
 		cod.setNroFact("1503");
 		cod.setNit("4189179011");
 		cod.setFecha("20070702");
 		cod.setMonto("2500");
 		cod.setLlave("9rCB7Sv4X29d)5k7N%3ab89p-3(5[A");
-		*/
 		
+		/*
 		cod.setNroAut("7904006306693");
 		cod.setNroFact("876814");
 		cod.setNit("1665979");
 		cod.setFecha("2008/05/19");
 		cod.setMonto("35958,6");
 		cod.setLlave("zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS");
-		
+		*/
 		
 		System.out.println(cod.getVerhoeff());
 		
@@ -238,5 +253,7 @@ public class CodControl {
 		System.out.println(cod.getSumatoriaProductos());
 		
 		System.out.println(cod.getBase64());
+		
+		System.out.println(cod.getCodigoControl());
 	}
 }
