@@ -42,19 +42,19 @@ public class CodControl {
 	}
 	
 	public String getVerhoeff(){
-		String nFactVer = getVerhoeff(getVerhoeff(nroFact));
+		nroFact = getVerhoeff(getVerhoeff(nroFact));
 		//System.out.println(nFactVer);
-		String nitVer = getVerhoeff(getVerhoeff(nit));
+		nit = getVerhoeff(getVerhoeff(nit));
 		//System.out.println(nitVer);
-		String fechaVer = getVerhoeff(getVerhoeff(fecha));
+		fecha = getVerhoeff(getVerhoeff(fecha));
 		//System.out.println(fechaVer);
-		String montoVer = getVerhoeff(getVerhoeff(monto));
+		monto = getVerhoeff(getVerhoeff(monto));
 		//System.out.println(montoVer);
 		
-		BigInteger sum = new BigInteger(nFactVer);
-		sum = sum.add(new BigInteger(nitVer));
-		sum = sum.add(new BigInteger(fechaVer));
-		sum = sum.add(new BigInteger(montoVer));
+		BigInteger sum = new BigInteger(nroFact);
+		sum = sum.add(new BigInteger(nit));
+		sum = sum.add(new BigInteger(fecha));
+		sum = sum.add(new BigInteger(monto));
 		
 		ver5 = getVerhoeff(getVerhoeff(getVerhoeff(getVerhoeff(getVerhoeff(sum.toString())))));
 		//System.out.println(ver5);
@@ -135,8 +135,6 @@ public class CodControl {
 	private String getAllegedRC4(){
 		String key = llave + ver5, alleged = "";
 		
-		System.out.println(key);
-		
 		int[] state = new int[256];
 		
 		for(int i = 0; i < 256; i++)
@@ -144,7 +142,7 @@ public class CodControl {
 		
 		int x = 0, y = 0, index1 = 0, index2 = 0, nmen;
 		
-		for(int i = 0; i < cadena.length(); i++){
+		for(int i = 0; i < 256; i++){
 			index2 = (key.charAt(index1) + state[i] + index2) % 256;
 			int aux = state[i];
 			state[i] = state[index2];
@@ -162,12 +160,13 @@ public class CodControl {
 			alleged += hexadecimal(nmen);
 		}
 		
-		System.out.println(alleged);
+		//System.out.println(alleged);
 		
 		return alleged;
 	} 
 	
-	private String hexadecimal(int n){
+	static String hexadecimal(int n){
+		int auxn = n;
 		int d0 = n % 16;
 		String hex = "";
 		if(d0 < 10)
@@ -184,7 +183,6 @@ public class CodControl {
 			else
 				hex = (char)(d0 - 10 + 'A') + hex;
 		}
-		
 		return hex;
 	}
 	
@@ -199,17 +197,18 @@ public class CodControl {
 		cod.setLlave("9rCB7Sv4X29d)5k7N%3ab89p-3(5[A");
 		
 		/*
-		cod.setNroAut("7904004313753");
-		cod.setNroFact("826384");
-		cod.setNit("1666982");
-		cod.setFecha("2008/06/22");
-		cod.setMonto("61102,7");
-		cod.setLlave("Ebs[$c2d2NCg5FYj@6nU5y##a5d]eDVz%]xW6bzcd}Kd)\\w\\=c+)dZHneF#bqVL@");
+		cod.setNroAut("7904006306693");
+		cod.setNroFact("876814");
+		cod.setNit("1665979");
+		cod.setFecha("2008/05/19");
+		cod.setMonto("35958,6");
+		cod.setLlave("zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS");
 		*/
+		
 		System.out.println(cod.getVerhoeff());
 		
 		System.out.println(cod.getCadena());
 		
-		//System.out.println(cod.getSumatoriaProductos());
+		System.out.println(cod.getSumatoriaProductos());
 	}
 }
