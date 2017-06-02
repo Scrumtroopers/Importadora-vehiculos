@@ -41,13 +41,13 @@ public class Login extends VentanaModelo {
 		
 		textFieldUsuario = new JTextField();
 		textFieldUsuario.setFont(fuenteTextField);
-		textFieldUsuario.setBounds(207, 121, 118, 30);
+		textFieldUsuario.setBounds(207, 121, 118, 25);
 		contentPane.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		textFieldPassword = new JPasswordField();
 		textFieldPassword.setFont(fuenteTextField);
-		textFieldPassword.setBounds(207, 153, 118, 30);
+		textFieldPassword.setBounds(207, 153, 118, 25);
 		contentPane.add(textFieldPassword);
 		textFieldPassword.setColumns(10);
 		
