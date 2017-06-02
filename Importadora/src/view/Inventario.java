@@ -62,7 +62,7 @@ public class Inventario extends VentanaModelo {
         table.setModel(new DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "ID", "FECHA", "ESTADO", "COMBUSTIBLE", "TIPO DE CAJA", "NUM. CHASIS", "COLOR", "FABRICANTE", "DESCRIPCION", "COSTO UNITARIO", "CANTIDAD", "PROVEEDOR", "OBSERVACIONES"
+                    "ID", "FECHA", "ESTADO", "COMBUSTIBLE", "TIPO DE CAJA", "NUM. CHASIS", "COLOR", "FABRICANTE", "DESCRIPCION", "COSTO UNITARIO", "CANTIDAD", "PROVEEDOR", "ALMACEN","OBSERVACIONES"
                 }
         ));
         scrollPane.setViewportView(table);
