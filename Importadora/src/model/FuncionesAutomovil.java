@@ -30,32 +30,31 @@ public class FuncionesAutomovil extends FuncionesBaseDeDatos{
         int idColor = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
         return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idColor+"'");
     }
-    public String getNrChasis(int id){
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+id+"'");
+    public int getNrChasis(int id){
+        return this.obtenerPrimerValorTabla("vehiculo", new String[]{"nr_chasis"}, "WHERE id='"+id+"'");
     }
     public String getModelo(int id){
-        int idModelo = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idModelo+"'");
+        int idModelo = this.obtenerPrimerValorTabla("vehiculo", new String[]{"modelo_id"}, "WHERE id='"+id+"'");
+        return this.obtenerPrimerValorTabla("modelo", new String[]{"nombre"}, "WHERE id='"+idModelo+"'");
     }
     public String getCombustible(int id){
-        int idCombustible = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idCombustible+"'");
+        int idCombustible = this.obtenerPrimerValorTabla("vehiculo", new String[]{"combustible_id"}, "WHERE id='"+id+"'");
+        return this.obtenerPrimerValorTabla("combustible", new String[]{"nombre"}, "WHERE id='"+idCombustible+"'");
     }
     public String getTipoCaja(int id){
-        int idTipoCaja = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idTipoCaja+"'");
+        int idTipoCaja = this.obtenerPrimerValorTabla("vehiculo", new String[]{"tipo_caja_id"}, "WHERE id='"+id+"'");
+        return this.obtenerPrimerValorTabla("tipo_caja", new String[]{"nombre"}, "WHERE id='"+idTipoCaja+"'");
     }
     public String getEstado(int id){
-        int idEstado = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idEstado+"'");
+        int idEstado = this.obtenerPrimerValorTabla("vehiculo", new String[]{"estado_vehiculo_id"}, "WHERE id='"+id+"'");
+        return this.obtenerPrimerValorTabla("estado_vehiculo", new String[]{"nombre"}, "WHERE id='"+idEstado+"'");
     }
     public String getDescripcion(int id){
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+id+"'");
+        return this.obtenerPrimerValorTabla("vehiculo", new String[]{"descripcion"}, "WHERE id='"+id+"'");
     }
     
-    public String getGarantia(int id){
-        int idGarantia = this.obtenerPrimerValorTabla("vehiculo", new String[]{"fabricante_id"}, "WHERE id='"+id+"'");
-        return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idGarantia+"'");
+    public double getGarantia(int id){
+        return this.obtenerPrimerValorTabla("vehiculo", new String[]{"garantia"}, "WHERE id='"+id+"'");
     }
     
 }

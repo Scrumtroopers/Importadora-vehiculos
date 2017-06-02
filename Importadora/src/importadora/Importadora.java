@@ -21,12 +21,12 @@ public class Importadora {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         inicializarInstancias();
         AdministradorVentanas.instancia.abrirVentana(Login.class);
     }
     
-    private static void inicializarInstancias(){
+    private static void inicializarInstancias() throws InstantiationException, IllegalAccessException{
         ControlLogIn.instancia.inicializar();
         ControlMenuPrincipal.instancia.inicializar();
         ControlInventario.instancia.inicializar();
