@@ -29,6 +29,7 @@ public class AgregarProducto extends VentanaModelo {
 	private JComboBox cbTipoCaja; 
 	private JComboBox cbColor; 
 	private JComboBox cbFabricante; 
+	private JComboBox cbAlmacen; 
 	
 	
 	
@@ -215,6 +216,18 @@ public class AgregarProducto extends VentanaModelo {
 		tfProveedor.setBounds(134, 300, 163, 30);
 		contentPane.add(tfProveedor);
 		
+		JLabel lblAlmacen = new JLabel("Almacen:");
+		lblAlmacen.setFont(new Font("Calibri", Font.PLAIN, 19));
+		lblAlmacen.setBounds(312, 304, 112, 24);
+		contentPane.add(lblAlmacen);
+		
+		
+		String[] almacenes = {"sacaba","cercado","quillacollo"}; 
+		JComboBox cbAlmacen = new JComboBox(almacenes);
+		cbAlmacen.setFont(new Font("Calibri", Font.PLAIN, 19));
+		cbAlmacen.setBounds(425, 298, 177, 30);
+		contentPane.add(cbAlmacen);
+		
 		restringirCampos();
 	}
 	
@@ -228,7 +241,7 @@ public class AgregarProducto extends VentanaModelo {
 	}	
 	
 	public Object[] getDatos(){
-		Object[] datos = new Object[14];
+		Object[] datos = new Object[15];
 		datos[0]=1;
 		datos[1]="01/06/2017";
 		datos[2]= (String)cbModelo.getSelectedItem();
@@ -242,7 +255,8 @@ public class AgregarProducto extends VentanaModelo {
 		datos[10]= verificador.getDouble(tfCostoUnitario);
 		datos[11]= verificador.getInt(tfCantidad);		
 		datos[12]= tfProveedor.getText();
-		datos[13]= tfObservaciones.getText();
+		datos[13]= (String)cbAlmacen.getSelectedItem();
+		datos[14]= tfObservaciones.getText();
 		return datos;
 	}
 }
