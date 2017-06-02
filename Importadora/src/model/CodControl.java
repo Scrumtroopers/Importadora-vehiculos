@@ -85,7 +85,7 @@ public class CodControl {
 		return cifra + (char) (inv[check] + '0');
 	}
 	
-	String getCadena(){
+	public String getCadena(){
 		
 		int ini = 0;
 		
@@ -114,7 +114,7 @@ public class CodControl {
 		return this.cadena = cadena.toString();
 	}
 	
-	String getSumatoriaProductos(){
+	public String getSumatoriaProductos(){
 		st = 0;
 		sp = new int[5];
 		
@@ -127,13 +127,15 @@ public class CodControl {
 			for(int j = i; j < alleged.length(); j += 5)
 				sp[i] += alleged.charAt(j);
 		
-		System.out.println(Arrays.toString(sp));
+		//System.out.println(Arrays.toString(sp));
 		
 		return "" + st;
 	}
 	
 	private String getAllegedRC4(){
 		String key = llave + ver5, alleged = "";
+		
+		System.out.println(key);
 		
 		int[] state = new int[256];
 		
@@ -156,31 +158,58 @@ public class CodControl {
 			int aux = state[x];
 			state[x] = state[y];
 			state[y] = aux;
-			
+			nmen = (int)(cadena.charAt(i)) ^ (state[(state[x] + state[y]) % 256]);
+			alleged += hexadecimal(nmen);
 		}
+		
+		System.out.println(alleged);
+		
 		return alleged;
 	} 
 	
+	private String hexadecimal(int n){
+		int d0 = n % 16;
+		String hex = "";
+		if(d0 < 10)
+			hex += d0;
+		else
+			hex += (char)(d0 - 10 + 'A');
+		n /= 16;
+		if(n == 0)
+			hex = "0" + hex;
+		else{
+			d0 = n % 16;
+			if(d0 < 10)
+				hex = d0 + hex;
+			else
+				hex = (char)(d0 - 10 + 'A') + hex;
+		}
+		
+		return hex;
+	}
+	
 	public static void main(String arg[]){
 		CodControl cod = new CodControl();
-		/*cod.setNroAut("29040011007");
+		
+		cod.setNroAut("29040011007");
 		cod.setNroFact("1503");
 		cod.setNit("4189179011");
 		cod.setFecha("20070702");
 		cod.setMonto("2500");
-		cod.setLlave("9rCB7Sv4X29d)5k7N%3ab89p-3(5[A");*/
+		cod.setLlave("9rCB7Sv4X29d)5k7N%3ab89p-3(5[A");
 		
-		cod.setNroAut("7904006306693");
-		cod.setNroFact("876814");
-		cod.setNit("1665979");
-		cod.setFecha("2008/05/19");
-		cod.setMonto("35958,6");
-		cod.setLlave("zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS");
-		
+		/*
+		cod.setNroAut("7904004313753");
+		cod.setNroFact("826384");
+		cod.setNit("1666982");
+		cod.setFecha("2008/06/22");
+		cod.setMonto("61102,7");
+		cod.setLlave("Ebs[$c2d2NCg5FYj@6nU5y##a5d]eDVz%]xW6bzcd}Kd)\\w\\=c+)dZHneF#bqVL@");
+		*/
 		System.out.println(cod.getVerhoeff());
 		
 		System.out.println(cod.getCadena());
 		
-		System.out.println(cod.getSumatoriaProductos());
+		//System.out.println(cod.getSumatoriaProductos());
 	}
 }
