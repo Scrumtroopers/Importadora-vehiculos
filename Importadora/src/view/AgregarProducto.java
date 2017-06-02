@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import model.AdministradorVentanas;
 
 public class AgregarProducto extends VentanaModelo {
 
@@ -185,7 +186,9 @@ public class AgregarProducto extends VentanaModelo {
 			public void actionPerformed(ActionEvent e) {
 				int resultado = JOptionPane.showConfirmDialog(null, "Esta Seguro?","Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
 				  if (resultado == JOptionPane.YES_OPTION || resultado == JOptionPane.CANCEL_OPTION)
-					  setVisible(false);
+                                    AdministradorVentanas.instancia.Atras();
+                                      
+                                     
 			}
 		});
 		
