@@ -11,37 +11,37 @@ public class CodControl {
 	
 	public CodControl(){}
 	
-	void setNroFact(String s){
+	public void setNroFact(String s){
 		nroFact = s;
 	}
 	
-	void setNroAut(String s){
+	public void setNroAut(String s){
 		nroAut = s;
 	}
 	
-	void setNit(String s){
+	public void setNit(String s){
 		nit = s;
 	}
 	
-	void setFecha(String s){
+	public void setFecha(String s){
 		String[] sp = s.split("/");
 		fecha = "";
 		for(String c:sp)
 			fecha += c;
 	}
 	
-	void setMonto(String s){
+	public void setMonto(String s){
 		s = s.replace(',', '.');
 		Locale.setDefault(Locale.US);
 		int valor = (int)(Double.parseDouble(s) + 0.5);
 		monto = "" + valor;
 	}
 	
-	void setLlave(String s){
+	public void setLlave(String s){
 		llave = s;
 	}
 	
-	String getVerhoeff(){
+	public String getVerhoeff(){
 		String nFactVer = getVerhoeff(getVerhoeff(nroFact));
 		//System.out.println(nFactVer);
 		String nitVer = getVerhoeff(getVerhoeff(nit));
