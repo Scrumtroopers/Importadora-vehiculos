@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.FuncionesInventario;
 import model.FuncionesUsuario;
 
 /**
@@ -22,6 +23,7 @@ public class BaseDeDatos {
     public static BaseDeDatos instancia = new BaseDeDatos();
     
     private FuncionesUsuario usuarios;
+    private FuncionesInventario inventario;
     private Connection conection = null;
     private Statement getStatement = null;
     private String url = "jdbc:postgresql://localhost:5432/importadora";
@@ -39,10 +41,15 @@ public class BaseDeDatos {
             System.out.println("no se conecto");
         }
         usuarios = new FuncionesUsuario(conection, getStatement);
+        inventario = new FuncionesInventario(conection, getStatement);
         
     }
     
     public FuncionesUsuario getUsuarios(){
         return usuarios;
+    }
+
+    public FuncionesInventario getInventario() {
+        return inventario;
     }
 }

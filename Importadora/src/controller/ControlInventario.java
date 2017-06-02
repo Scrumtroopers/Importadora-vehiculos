@@ -32,5 +32,7 @@ public class ControlInventario {
                 AdministradorVentanas.instancia.abrirVentana(AgregarProducto.class);
             }
         });
+        
+        
     }
 }

@@ -1,5 +1,6 @@
 package view;
 
+import Conexion.BaseDeDatos;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -240,7 +241,7 @@ public class AgregarProducto extends VentanaModelo {
 	}
 	
 	private void guardar(){
-		
+		//BaseDeDatos.instancia.getInventario().agregarVehiculoInventario(auto, tipoFuente, WIDTH, tipoFuente);
 	}	
 	
 	public Object[] getDatos(){
