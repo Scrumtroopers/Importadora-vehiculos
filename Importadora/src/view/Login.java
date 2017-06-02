@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -40,13 +41,13 @@ public class Login extends VentanaModelo {
 		
 		textFieldUsuario = new JTextField();
 		textFieldUsuario.setFont(fuenteTextField);
-		textFieldUsuario.setBounds(207, 121, 118, 20);
+		textFieldUsuario.setBounds(207, 121, 118, 30);
 		contentPane.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
-		textFieldPassword = new JTextField();
+		textFieldPassword = new JPasswordField();
 		textFieldPassword.setFont(fuenteTextField);
-		textFieldPassword.setBounds(207, 153, 118, 20);
+		textFieldPassword.setBounds(207, 153, 118, 30);
 		contentPane.add(textFieldPassword);
 		textFieldPassword.setColumns(10);
 		
