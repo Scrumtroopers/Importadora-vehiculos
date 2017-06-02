@@ -132,33 +132,42 @@ public class AgregarProducto extends VentanaModelo {
 		lblOpvservaciones.setBounds(10, 341, 139, 24);
 		contentPane.add(lblOpvservaciones);
 		
-		JComboBox cbModelo = new JComboBox();
+		
+                String[] modelos = {"serie 1","serie 3","serie 4","serie 5","serie 6","serie 7"};
+                JComboBox cbModelo = new JComboBox(modelos);
 		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbModelo.setBounds(117, 8, 178, 30);
-		contentPane.add(cbModelo);
-		
-		JComboBox cbEstado = new JComboBox();
-		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
+		contentPane.add(cbModelo);             
+                                
+		String[] estados = {"nuevo","seminuevo"};
+		JComboBox cbEstado = new JComboBox(estados);
+		cbEstado.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbEstado.setBounds(425, 8, 178, 30);
 		contentPane.add(cbEstado);
 		
-		JComboBox cbCombustible = new JComboBox();
-		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));		
+                String[] combustibles = {"gasolina","diesel"};                 
+		JComboBox cbCombustible = new JComboBox(combustibles);
+		cbCombustible.setFont(new Font("Calibri", Font.PLAIN, 19));		
 		cbCombustible.setBounds(117, 50, 177, 30);
 		contentPane.add(cbCombustible);
 		
-		JComboBox cbTipoCaja = new JComboBox();
-		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
+                
+                String[] tipoCajas = {"mecanica","automatica"};
+		JComboBox cbTipoCaja = new JComboBox(tipoCajas);
+		cbTipoCaja.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbTipoCaja.setBounds(426, 50, 177, 30);
 		contentPane.add(cbTipoCaja);
 		
-		JComboBox comboBox_4 = new JComboBox();
-		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
-		comboBox_4.setBounds(426, 98, 177, 30);
-		contentPane.add(comboBox_4);
+                String[] colores ={"rojo","verde","negro","azul","blanco"}; 
+		JComboBox cbColor = new JComboBox(colores);
+		cbColor.setFont(new Font("Calibri", Font.PLAIN, 19));
+		cbColor.setBounds(426, 98, 177, 30);
+		contentPane.add(cbColor);
 		
-		JComboBox cbFabricante = new JComboBox();
-		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
+                
+                String[] fabricantes = {"bmw","toyota","Bugatti","alfa romeo","chevrolet","cadilac","ford","Isuzu" };
+		JComboBox cbFabricante = new JComboBox(fabricantes);
+		cbFabricante.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbFabricante.setBounds(117, 142, 177, 30);
 		contentPane.add(cbFabricante);
 		
