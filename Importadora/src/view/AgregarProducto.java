@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -31,6 +32,9 @@ public class AgregarProducto extends VentanaModelo {
 	private JComboBox cbColor; 
 	private JComboBox cbFabricante; 
 	private JComboBox cbAlmacen; 
+        private JButton btnGuardar;
+        private JButton btnCancelar;
+        
 	
 	
 	
@@ -178,30 +182,13 @@ public class AgregarProducto extends VentanaModelo {
 		tfObservaciones.setBounds(10, 368, 593, 30);
 		contentPane.add(tfObservaciones);
 		
-		JButton btnCancelar = nuevoBoton(450, 404, "Cancelar");
+		btnCancelar = nuevoBoton(450, 404, "Cancelar");
 		contentPane.add(btnCancelar);
-		btnCancelar.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int resultado = JOptionPane.showConfirmDialog(null, "Esta Seguro?","Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
-				  if (resultado == JOptionPane.YES_OPTION || resultado == JOptionPane.CANCEL_OPTION)
-                                    AdministradorVentanas.instancia.Atras();
-                                      
-                                     
-			}
-		});
 		
 		
-		JButton btnGuardar = nuevoBoton(290, 404, "Guardar");				
+		
+		btnGuardar = nuevoBoton(290, 404, "Guardar");				
 		contentPane.add(btnGuardar);
-		btnGuardar.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				guardar();				
-			}
-		});
 		
 		
 		tfCostoUnitario = new JTextField();	
@@ -238,16 +225,21 @@ public class AgregarProducto extends VentanaModelo {
 		verificador.SDec(tfCostoUnitario);
 		verificador.SInt(tfCantidad);	
 	}
-	
-	private void guardar(){
-		
-	}	
-	
+			
+        
+        public JButton getBotonGuardar(){
+            return btnGuardar;
+        } 
+	       
+        public JButton getBotonCancelar(){
+            return btnCancelar;
+        } 
+        
 	public Object[] getDatos(){
 		Object[] datos = new Object[15];
-		datos[0]=1;
-		datos[1]="01/06/2017";
-		datos[2]= (String)cbModelo.getSelectedItem();
+		/*datos[0]=1;
+		datos[1]= new Date();
+		datos[2]= cbModelo.getSelectedItem().toString();
 		datos[3]= (String)cbEstado.getSelectedItem();
 		datos[4]= (String)cbCombustible.getSelectedItem();
 		datos[5]= (String)cbTipoCaja.getSelectedItem();
@@ -259,6 +251,19 @@ public class AgregarProducto extends VentanaModelo {
 		datos[11]= verificador.getInt(tfCantidad);		
 		datos[12]= tfProveedor.getText();
 		datos[13]= (String)cbAlmacen.getSelectedItem();
+		datos[14]= tfObservaciones.getText();*/
+		datos[2]= "";//cbModelo.getSelectedItem().toString();
+		datos[3]= "";//(String)cbEstado.getSelectedItem();
+		datos[4]= "";//(String)cbCombustible.getSelectedItem();
+		datos[5]= "";//(String)cbTipoCaja.getSelectedItem();
+		datos[6]= tfNumChasis.getText();
+		datos[7]= "";//(String)cbColor.getSelectedItem();
+		datos[8]= "";//(String)cbFabricante.getSelectedItem();
+		datos[9]= tfDescripcion.getText();
+		datos[10]= verificador.getDouble(tfCostoUnitario);
+		datos[11]= verificador.getInt(tfCantidad);		
+		datos[12]= tfProveedor.getText();
+		datos[13]= "";//(String)cbAlmacen.getSelectedItem();
 		datos[14]= tfObservaciones.getText();
 		return datos;
 	}

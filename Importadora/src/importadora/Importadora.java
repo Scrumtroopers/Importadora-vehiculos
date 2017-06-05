@@ -5,7 +5,7 @@
  */
 package importadora;
 
-import Conexion.BaseDeDatos;
+import controller.ControlAgregarProducto;
 import controller.ControlInventario;
 import controller.ControlLogIn;
 import controller.ControlMenuPrincipal;
@@ -30,6 +30,7 @@ public class Importadora {
         ControlLogIn.instancia.inicializar();
         ControlMenuPrincipal.instancia.inicializar();
         ControlInventario.instancia.inicializar();
+        ControlAgregarProducto.instancia.inicializar();
     }
     
 }
