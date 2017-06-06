@@ -33,7 +33,7 @@ public class ControlAgregarProducto {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     datos = ventanaAgregarProducto.getDatos();
                     Auto auto;
-                    auto = new Auto((String)datos[1], (String)datos[7], (String)datos[3], (String)datos[4], (String)datos[2], (String)datos[6], Integer.valueOf(datos[5].toString()), (String)datos[8], Double.valueOf(datos[9].toString()), Double.valueOf(datos[9].toString())*0.55);
+                    auto = new Auto((String)datos[1], (String)datos[7], (String)datos[3], (String)datos[4], (String)datos[2], (String)datos[6], (int)datos[5], (String)datos[8], (double)datos[9], ((double)datos[9])*0.55);
                     BaseDeDatos.instancia.getInventario().agregarVehiculoInventario(auto, (String)datos[12], Integer.valueOf(datos[10].toString()), (String)datos[13]);
                             System.out.println("guardar");
                 }

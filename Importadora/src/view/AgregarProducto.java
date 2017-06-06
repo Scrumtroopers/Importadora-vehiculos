@@ -243,7 +243,7 @@ public class AgregarProducto extends VentanaModelo {
 		datos[2]= (String)cbEstado.getSelectedItem();
 		datos[3]= (String)cbCombustible.getSelectedItem();
 		datos[4]= (String)cbTipoCaja.getSelectedItem();
-		datos[5]= tfNumChasis.getText();
+		datos[5]= verificador.getInt(tfNumChasis);
 		datos[6]= (String)cbColor.getSelectedItem();
 		datos[7]= (String)cbFabricante.getSelectedItem();
 		datos[8]= tfDescripcion.getText();
