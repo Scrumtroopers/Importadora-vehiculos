@@ -9,6 +9,7 @@ import controller.ControlAgregarProducto;
 import controller.ControlInventario;
 import controller.ControlLogIn;
 import controller.ControlMenuPrincipal;
+import controller.ControlRegistroUsuario;
 import model.AdministradorVentanas;
 import view.Login;
 
@@ -31,6 +32,7 @@ public class Importadora {
         ControlMenuPrincipal.instancia.inicializar();
         ControlInventario.instancia.inicializar();
         ControlAgregarProducto.instancia.inicializar();
+        ControlRegistroUsuario.instancia.inicializar();
     }
     
 }

@@ -3,13 +3,16 @@
  */
 package controller;
 
+import Conexion.BaseDeDatos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import model.AdministradorVentanas;
 import model.PermisoUsuario;
 import view.Inventario;
 import view.Menu;
+import view.RegistroUsuario;
 
 /**
  *
@@ -83,6 +86,9 @@ public class ControlMenuPrincipal {
                      PermisoUsuario.EliminarUsuario
                  }));
                  System.out.println(valido?"Acceso valido":"Acceso Denegado");
+                 if(valido){
+                     AdministradorVentanas.instancia.abrirVentana(RegistroUsuario.class);
+                 }
              }
          });
         ventanaMenu.getBotonTransporte().addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +98,17 @@ public class ControlMenuPrincipal {
                      
                  }));
                  System.out.println(valido?"Acceso valido":"Acceso Denegado");
+             }
+         });
+        ventanaMenu.getBotonSalir().addActionListener(new java.awt.event.ActionListener() {
+             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                 boolean sesion = BaseDeDatos.instancia.getUsuarios().cerrarSesion();
+                 if(sesion){
+                    JOptionPane.showMessageDialog(ventanaMenu, "Sesion Cerrada.");
+                    System.exit(0);
+                 }
+                 else
+                     JOptionPane.showMessageDialog(ventanaMenu, "Error al cerrar Sesion.");
              }
          });
     }

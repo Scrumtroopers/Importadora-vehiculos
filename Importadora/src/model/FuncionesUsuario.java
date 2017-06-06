@@ -20,6 +20,10 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
         super(conexion, statement);
     }
     
+    public boolean cerrarSesion(){
+        return this.obtenerPrimerValorFuncion("cerrar_sesion", null);
+    }
+    
     public int getPid(String name, String pass){
         return obtenerPrimerValorFuncion("pid", new Object[]{name, pass});
     }
@@ -67,13 +71,21 @@ public class FuncionesUsuario extends FuncionesBaseDeDatos {
         actualizarTabla("user_2", new String[]{"password_2"}, new Object[]{nuevo}, "WHERE iduser='"+idUsuario+"'");
     }
     
+    public boolean existeUsuario(String user){
+        return this.obtenerPrimerValorTabla("user_2", new String[]{"nombre"}, "WHERE nombre='"+user+"'") != null;
+    }
+    
+    private long getIdUser(String usuario, String pass){
+        Object val = obtenerPrimerValorTabla("user_2", new String[]{"iduser"}, "WHERE nombre='"+usuario+"' AND password_2='"+pass+"'");
+        return val == null?-1:(long)val;
+    }
+    
     public boolean crearNuevoUsuario(String nombre, String pass, TipoUsuario tipo){
         boolean creado = false;
         try{
             boolean insertado = this.insertarEnTabla("user_2", new String[]{"nombre", "password_2"}, new Object[]{nombre, pass});
             if(insertado){
-                int pid = this.getPid(nombre, pass);
-                int idUser = this.getIdUser(pid);
+                long idUser = this.getIdUser(nombre, pass);
                 boolean insertadoRol = this.insertarEnTabla("user_rol", new String[]{"user_2_iduser", "rol_idrol"}, new Object[]{idUser, (tipo.ordinal()+1)});
                 if(insertadoRol)
                     creado = true;

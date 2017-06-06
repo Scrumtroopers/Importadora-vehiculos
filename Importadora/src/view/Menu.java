@@ -22,6 +22,7 @@ public class Menu extends VentanaModelo {
         private JButton btnProveedores;
         private JButton btnUsuarios;
         private JButton btnTransporte;
+        private JButton btnSalir;
         
 	public Menu() {
             super("Menu Principal");
@@ -54,7 +55,7 @@ public class Menu extends VentanaModelo {
 		btnProveedores.setBounds(29, 192, 162, 129);
 		contentPane.add(btnProveedores);
 		
-		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("Registro Usuarios");
 		btnUsuarios.setFont(fuenteBotones);
 		btnUsuarios.setBounds(216, 192, 162, 129);
 		contentPane.add(btnUsuarios);
@@ -63,10 +64,19 @@ public class Menu extends VentanaModelo {
 		btnTransporte.setFont(fuenteBotones);
 		btnTransporte.setBounds(408, 192, 162, 129);
 		contentPane.add(btnTransporte);
+                
+                btnSalir = new JButton("Cerrar Sesion");
+		btnSalir.setFont(fuenteBotones);
+		btnSalir.setBounds(408, 331, 162, 30);
+		contentPane.add(btnSalir);
 	}
         
         public JButton getBotonInventario(){
             return btnInventario;
+        }
+        
+        public JButton getBotonSalir(){
+            return btnSalir;
         }
         
         public JButton getBotonUsuarios(){
