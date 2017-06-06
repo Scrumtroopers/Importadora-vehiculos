@@ -61,26 +61,26 @@ public class FuncionesAutomovil extends FuncionesBaseDeDatos{
         return this.obtenerPrimerValorTabla("vehiculo", new String[]{"garantia"}, "WHERE id='"+id+"'");
     }
     
-    public int getIdFabricante(String nombre){
+    public long getIdFabricante(String nombre){
         return this.obtenerPrimerValorTabla("fabricante", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
     }
     
-    public int getIdColor(String nombre){
+    public long getIdColor(String nombre){
         return this.obtenerPrimerValorTabla("color", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
     }
     
-    public int getIdModelo(String nombre){
+    public long getIdModelo(String nombre){
         return this.obtenerPrimerValorTabla("modelo", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
     }
     
-    public int getIdCombustible(String nombre){
-        return this.obtenerPrimerValorTabla("combustible", new String[]{"id"}, "WHERE id='"+nombre+"'");
+    public long getIdCombustible(String nombre){
+        return this.obtenerPrimerValorTabla("combustible", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
     }
-    public int getIdTipoCaja(String nombre){
-        return this.obtenerPrimerValorTabla("tipo_caja", new String[]{"id"}, "WHERE id='"+nombre+"'");
+    public long getIdTipoCaja(String nombre){
+        return this.obtenerPrimerValorTabla("tipo_caja", new String[]{"id"}, "WHERE tipo='"+nombre+"'");
     }
-    public int getIdEstado(String nombre){
-        return this.obtenerPrimerValorTabla("estado_vehiculo", new String[]{"id"}, "WHERE id='"+nombre+"'");
+    public long getIdEstado(String nombre){
+        return this.obtenerPrimerValorTabla("estado_vehiculo", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
     }    
     
     public boolean registrarAuto(Auto auto){
