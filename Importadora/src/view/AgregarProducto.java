@@ -140,39 +140,39 @@ public class AgregarProducto extends VentanaModelo {
 		
 		
                 String[] modelos = {"Serie 1","Serie 3","Serie 4","Serie 5","Serie 6","Serie 7"};
-                JComboBox cbModelo = new JComboBox(modelos);
+                cbModelo = new JComboBox(modelos);
 		cbModelo.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbModelo.setBounds(117, 8, 178, 30);
 		contentPane.add(cbModelo);             
                                 
 		String[] estados = {"Nuevo","Neminuevo"};
-		JComboBox cbEstado = new JComboBox(estados);
+		cbEstado = new JComboBox(estados);
 		cbEstado.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbEstado.setBounds(425, 8, 178, 30);
 		contentPane.add(cbEstado);
 		
                 String[] combustibles = {"Gasolina","Diesel"};                 
-		JComboBox cbCombustible = new JComboBox(combustibles);
+		cbCombustible = new JComboBox(combustibles);
 		cbCombustible.setFont(new Font("Calibri", Font.PLAIN, 19));		
 		cbCombustible.setBounds(117, 50, 177, 30);
 		contentPane.add(cbCombustible);
 		
                 
                 String[] tipoCajas = {"Mecanica","Automatica"};
-		JComboBox cbTipoCaja = new JComboBox(tipoCajas);
+		cbTipoCaja = new JComboBox(tipoCajas);
 		cbTipoCaja.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbTipoCaja.setBounds(426, 50, 177, 30);
 		contentPane.add(cbTipoCaja);
 		
                 String[] colores ={"Rojo","Verde","Negro","Azul","Blanco"}; 
-		JComboBox cbColor = new JComboBox(colores);
+		cbColor = new JComboBox(colores);
 		cbColor.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbColor.setBounds(426, 98, 177, 30);
 		contentPane.add(cbColor);
 		
                 
                 String[] fabricantes = {"BMW","Toyota","Bugatti","Alfa romeo","Chevrolet","Cadilac","Ford","Isuzu" };
-		JComboBox cbFabricante = new JComboBox(fabricantes);
+		cbFabricante = new JComboBox(fabricantes);
 		cbFabricante.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbFabricante.setBounds(117, 142, 177, 30);
 		contentPane.add(cbFabricante);
@@ -213,7 +213,7 @@ public class AgregarProducto extends VentanaModelo {
 		
 		
 		String[] almacenes = {"Sacaba","Cercado","Quillacollo"}; 
-		JComboBox cbAlmacen = new JComboBox(almacenes);
+		cbAlmacen = new JComboBox(almacenes);
 		cbAlmacen.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbAlmacen.setBounds(425, 298, 177, 30);
 		contentPane.add(cbAlmacen);
@@ -252,18 +252,18 @@ public class AgregarProducto extends VentanaModelo {
 		datos[12]= tfProveedor.getText();
 		datos[13]= (String)cbAlmacen.getSelectedItem();
 		datos[14]= tfObservaciones.getText();*/
-		datos[2]= "";//cbModelo.getSelectedItem().toString();
-		datos[3]= "";//(String)cbEstado.getSelectedItem();
-		datos[4]= "";//(String)cbCombustible.getSelectedItem();
-		datos[5]= "";//(String)cbTipoCaja.getSelectedItem();
+		datos[2]= (String)cbModelo.getSelectedItem();
+		datos[3]= (String)cbEstado.getSelectedItem();
+		datos[4]= (String)cbCombustible.getSelectedItem();
+		datos[5]= (String)cbTipoCaja.getSelectedItem();
 		datos[6]= tfNumChasis.getText();
-		datos[7]= "";//(String)cbColor.getSelectedItem();
-		datos[8]= "";//(String)cbFabricante.getSelectedItem();
+		datos[7]= (String)cbColor.getSelectedItem();
+		datos[8]= (String)cbFabricante.getSelectedItem();
 		datos[9]= tfDescripcion.getText();
 		datos[10]= verificador.getDouble(tfCostoUnitario);
 		datos[11]= verificador.getInt(tfCantidad);		
 		datos[12]= tfProveedor.getText();
-		datos[13]= "";//(String)cbAlmacen.getSelectedItem();
+		datos[13]= (String)cbAlmacen.getSelectedItem();
 		datos[14]= tfObservaciones.getText();
 		return datos;
 	}
