@@ -31,8 +31,14 @@ public class FuncionesInventario extends FuncionesBaseDeDatos {
         boolean valido = funcionAuto.registrarAuto(auto);
         boolean insertado = false;
         if (valido) {
-            insertado = this.insertarEnTabla("inventario", new String[]{"almacen_id", "vehiculo_id", "cantidad", "observaciones"}, new Object[]{funcionAuto.getIdVehiculo(cantidad),
-                                            1, cantidad, observaciones});
+            int idvehiculo = (int) funcionAuto.getIdVehiculo(auto.getNr_chasis());
+                 
+            int idAlmacen = (int) funcionAuto.getIdAlmacen(almacen);
+                    
+            insertado = this.insertarEnTabla("inventario", new String[]{"almacen_id", "vehiculo_id", "cantidad", "observaciones"}, new Object[]{idAlmacen,
+                                            idvehiculo, cantidad, observaciones});
+           
+        
         }
         return insertado;
     }

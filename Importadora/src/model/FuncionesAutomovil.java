@@ -23,7 +23,11 @@ public class FuncionesAutomovil extends FuncionesBaseDeDatos{
         return this.obtenerPrimerValorTabla("fabricante", new String[]{"nombre"}, "WHERE id='"+idFabricante+"'");
     }
     
-    public int getIdVehiculo(int nr_chasis){
+    public long getIdAlmacen(String nombre){
+        return this.obtenerPrimerValorTabla("almacen", new String[]{"id"}, "WHERE nombre='"+nombre+"'");
+    }
+    
+    public long getIdVehiculo(int nr_chasis){
         return this.obtenerPrimerValorTabla("vehiculo",new String[]{"id"}, "WHERE nr_chasis='"+nr_chasis+"'");
     }
     public double getPrecio(int id){
