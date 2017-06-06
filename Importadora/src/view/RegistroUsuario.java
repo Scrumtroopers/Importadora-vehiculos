@@ -37,9 +37,9 @@ public class RegistroUsuario extends VentanaModelo{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogin = new JLabel("Login");
+		JLabel lblLogin = new JLabel("Registrar Nuevo Usuario");
 		lblLogin.setFont(fuenteTitulo);
-		lblLogin.setBounds(107, 57, 67, 24);
+		lblLogin.setBounds(107, 57, 267, 24);
 		contentPane.add(lblLogin);
 		
 		JLabel lblPassword = new JLabel("Password:");
