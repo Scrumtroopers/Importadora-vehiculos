@@ -5,10 +5,8 @@
  */
 package controller;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Conexion.BaseDeDatos;
 import model.AdministradorVentanas;
-import model.PermisoUsuario;
 import view.AgregarProducto;
 import view.Inventario;
 
@@ -33,6 +31,10 @@ public class ControlInventario {
             }
         });
         
+        
+    }
+    
+    public void llenarTabla(){
         
     }
 }
