@@ -43,6 +43,7 @@ public class BaseDeDatos {
         usuarios = new FuncionesUsuario(conection, getStatement);
         inventario = new FuncionesInventario(conection, getStatement);
         
+        
     }
     
     public FuncionesUsuario getUsuarios(){

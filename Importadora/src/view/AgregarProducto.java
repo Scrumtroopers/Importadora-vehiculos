@@ -145,7 +145,7 @@ public class AgregarProducto extends VentanaModelo {
 		cbModelo.setBounds(117, 8, 178, 30);
 		contentPane.add(cbModelo);             
                                 
-		String[] estados = {"Nuevo","Neminuevo"};
+		String[] estados = {"Nuevo","Seminuevo"};
 		cbEstado = new JComboBox(estados);
 		cbEstado.setFont(new Font("Calibri", Font.PLAIN, 19));
 		cbEstado.setBounds(425, 8, 178, 30);
@@ -224,6 +224,7 @@ public class AgregarProducto extends VentanaModelo {
 	private void restringirCampos(){
 		verificador.SDec(tfCostoUnitario);
 		verificador.SInt(tfCantidad);	
+                verificador.SInt(tfNumChasis);
 	}
 			
         
@@ -236,35 +237,21 @@ public class AgregarProducto extends VentanaModelo {
         } 
         
 	public Object[] getDatos(){
-		Object[] datos = new Object[15];
-		/*datos[0]=1;
-		datos[1]= new Date();
-		datos[2]= cbModelo.getSelectedItem().toString();
-		datos[3]= (String)cbEstado.getSelectedItem();
-		datos[4]= (String)cbCombustible.getSelectedItem();
-		datos[5]= (String)cbTipoCaja.getSelectedItem();
-		datos[6]= tfNumChasis.getText();
-		datos[7]= (String)cbColor.getSelectedItem();
-		datos[8]= (String)cbFabricante.getSelectedItem();
-		datos[9]= tfDescripcion.getText();
-		datos[10]= verificador.getDouble(tfCostoUnitario);
-		datos[11]= verificador.getInt(tfCantidad);		
-		datos[12]= tfProveedor.getText();
-		datos[13]= (String)cbAlmacen.getSelectedItem();
-		datos[14]= tfObservaciones.getText();*/
-		datos[2]= (String)cbModelo.getSelectedItem();
-		datos[3]= (String)cbEstado.getSelectedItem();
-		datos[4]= (String)cbCombustible.getSelectedItem();
-		datos[5]= (String)cbTipoCaja.getSelectedItem();
-		datos[6]= tfNumChasis.getText();
-		datos[7]= (String)cbColor.getSelectedItem();
-		datos[8]= (String)cbFabricante.getSelectedItem();
-		datos[9]= tfDescripcion.getText();
-		datos[10]= verificador.getDouble(tfCostoUnitario);
-		datos[11]= verificador.getInt(tfCantidad);		
-		datos[12]= tfProveedor.getText();
-		datos[13]= (String)cbAlmacen.getSelectedItem();
-		datos[14]= tfObservaciones.getText();
+		Object[] datos = new Object[14];
+		datos[0]= new Date();
+		datos[1]= cbModelo.getSelectedItem().toString();
+		datos[2]= (String)cbEstado.getSelectedItem();
+		datos[3]= (String)cbCombustible.getSelectedItem();
+		datos[4]= (String)cbTipoCaja.getSelectedItem();
+		datos[5]= tfNumChasis.getText();
+		datos[6]= (String)cbColor.getSelectedItem();
+		datos[7]= (String)cbFabricante.getSelectedItem();
+		datos[8]= tfDescripcion.getText();
+		datos[9]= verificador.getDouble(tfCostoUnitario);
+		datos[10]= verificador.getInt(tfCantidad);		
+		datos[11]= tfProveedor.getText();
+		datos[12]= (String)cbAlmacen.getSelectedItem();
+		datos[13]= tfObservaciones.getText();
 		return datos;
 	}
 }

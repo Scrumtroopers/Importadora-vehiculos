@@ -5,12 +5,13 @@
  */
 package controller;
 
+import Conexion.BaseDeDatos;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.AdministradorVentanas;
+import model.Auto;
 import view.AgregarProducto;
-import view.Login;
 
 /**
  *
@@ -31,7 +32,10 @@ public class ControlAgregarProducto {
             ventanaAgregarProducto.getBotonGuardar().addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     datos = ventanaAgregarProducto.getDatos();
-                    System.out.println("guardar");
+                    Auto auto;
+                    auto = new Auto((String)datos[1], (String)datos[7], (String)datos[3], (String)datos[4], (String)datos[2], (String)datos[6], Integer.valueOf(datos[5].toString()), (String)datos[8], Double.valueOf(datos[9].toString()), Double.valueOf(datos[9].toString())*0.55);
+                    BaseDeDatos.instancia.getInventario().agregarVehiculoInventario(auto, (String)datos[12], Integer.valueOf(datos[10].toString()), (String)datos[13]);
+                            System.out.println("guardar");
                 }
             });
             //boton cancelar

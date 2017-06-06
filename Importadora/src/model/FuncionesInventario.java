@@ -15,6 +15,7 @@ import java.sql.Statement;
  */
 public class FuncionesInventario extends FuncionesBaseDeDatos {
 
+    
     private FuncionesAutomovil funcionAuto;
 
     public FuncionesInventario(Connection conexion, Statement statement) {
